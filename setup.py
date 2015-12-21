@@ -23,14 +23,15 @@ CLASSIFIERS = [
 
 
 setup(name='nose-mongoengine-wait-time',
-      version="0.2.2",
+
+      version="0.0.1",
       classifiers=CLASSIFIERS,
-      author='Marcelo Anton',
-      author_email='marceloanton@gmail.com',
+      author='Bill Van Der Laan',
+      author_email='wvanderln@hotmail.com',
       description=DESCRIPTION,
       long_description=LONG_DESCRIPTION,
-      url='http://github.com/mbanton/nose-mongoengine/',
-      download_url='http://github.com/mbanton/nose-mongoengine/tarball/master',
+      url='http://github.com/vanderln/nose-mongoengine/',
+      download_url='http://github.com/vanderln/nose-mongoengine/tarball/master',
       license='BSD-derived',
       packages=find_packages(exclude=('tests',)),
       install_requires=["nose", "mongoengine"],

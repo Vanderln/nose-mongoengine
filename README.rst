@@ -2,15 +2,15 @@
 nose-mongoengine
 ================
 
-:Info: A nose plugin to facilitate the creation of automated tests that access Mongo Engine structures.
-:Repository: https://github.com/mbanton/nose-mongoengine/
+:Info: A modification of mblanton's nose plugin to facilitate the creation of automated tests that access Mongo Engine structures.
+:Repository: https://github.com/vanderln/nose-mongoengine/
 :PyPI page: http://pypi.python.org/pypi/nose-mongoengine/
-:Author: Marcelo Anton (http://github.com/mbanton) & Maxwell Dayvson ( https://github.com/dayvson/)
+:Author: Bill Van Der Laan (http://github.com/vanderln)
 
-.. image:: https://secure.travis-ci.org/mbanton/nose-mongoengine.png?branch=master
-  :target: http://travis-ci.org/mbanton/nose-mongoengine
+.. image:: https://secure.travis-ci.org/vanderln/nose-mongoengine.png?branch=master
+  :target: http://travis-ci.org/vanderln/nose-mongoengine
 
-Originally based on Mongo Nose ( http://pypi.python.org/pypi/mongonose/ ). Thanks to: Kapil Thangavelu
+Originally based on Mongo Nose ( http://pypi.python.org/pypi/mongonose/ ). Thanks to: M Blanton
 
 .. contents::
 
@@ -19,7 +19,7 @@ Installation
 
 Using pip:
 
-    pip install nose-mongoengine
+    pip install nose-mongoengine-wait-time
 
 Configuration
 =============
