@@ -121,6 +121,12 @@ class MongoEnginePlugin(Plugin):
             dest="mongodb_prealloc",
             default=False,
             help=("Optionally preallocate db files"))
+        parser.add_option(
+            "--mongoengine-mongodb-wait-time",
+            action="store",
+            dest="wait_time",
+            default=0.5,
+            help=("Optionally configure the wait for mongodb initialization"))
 
     def configure(self, options, conf):
         """Parse the command line options and start an instance of mongodb
@@ -220,7 +226,7 @@ class MongoEnginePlugin(Plugin):
         os.environ["TEST_MONGODB_DATABASE"] = self.database_name
 
         # Give a moment for mongodb to finish coming up
-        time.sleep(0.3)
+        time.sleep(float(options.wait_time))
 
         # Connecting using mongoengine
         self.connection = connect(self.database_name, host="localhost",
