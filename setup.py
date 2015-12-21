@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-DESCRIPTION = 'A nose plugin to facilitate the creation of automated tests' +\
+DESCRIPTION = 'A modification for the nose plugin to facilitate the creation of automated tests' +\
               ' that access Mongo Engine structures.'
 
 f = open("README.rst")
@@ -22,7 +22,7 @@ CLASSIFIERS = [
 ]
 
 
-setup(name='nose-mongoengine',
+setup(name='nose-mongoengine-wait-time',
       version="0.2.2",
       classifiers=CLASSIFIERS,
       author='Marcelo Anton',

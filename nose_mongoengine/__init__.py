@@ -125,7 +125,7 @@ class MongoEnginePlugin(Plugin):
             "--mongoengine-mongodb-wait-time",
             action="store",
             dest="wait_time",
-            default=0.5,
+            default=1,
             help=("Optionally configure the wait for mongodb initialization"))
 
     def configure(self, options, conf):

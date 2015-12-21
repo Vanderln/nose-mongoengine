@@ -51,6 +51,7 @@ the plugin.
    is off. Modern filesystems will sparsely allocate, which can
    speed up test execution.
 
+- ``--mongoengine-mongodb-wait-time`` Can optionally set the time to wait for mongodb to initialize
 
 The plugin will up a instance of Mongo Db and create a empty database to use it.
 
@@ -62,16 +63,16 @@ Since this is your model using mongoengine ( model_one.py )::
 
     # encoding:utf-8 #
     from mongoengine import *
-    
+
     class ModelOne(Document):
         int_value1 = IntField()
         int_value2 = IntField()
         boolean_value = BooleanField(required=True, default=False)
-    
+
         @classmethod
         def get_model_one_by_value1(cls, v):
             return ModelOne.objects(int_value1=v)
-    
+
         @classmethod
         def get_model_one_by_boolean_value(cls, v):
             return ModelOne.objects(boolean_value=v)
@@ -82,57 +83,57 @@ This is an example using the test nose + nose-mongoengine ( test_model_one.py ):
     # encoding:utf-8 #
     from model_one import ModelOne
     from nose.tools import assert_equals
-    
+
     class TestModelOne(object):
-    
+
         # This method run on instance of class
         @classmethod
         def setUpClass(cls):
-    
+
             global o1_id, o2_id
-    
+
             # Create two objects for test
             o1 = ModelOne()
             o1.int_value1 = 500
             o1.int_value2 = 123
             o1.boolean_value = True
             o1.save()
-    
+
             o2 = ModelOne()
             o2.int_value1 = 500
             o2.int_value2 = 900
             o2.boolean_value = False
             o2.save()
-    
+
             # Save the id of objects to match in the test
             o1_id = o1.id
             o2_id = o2.id
-    
+
         # This method run on every test
         def setUp(self):
             global o1_id, o2_id
             self.o1_id = o1_id
             self.o2_id = o2_id
-    
+
         def test_match_with_value1(self):
             find = ModelOne.get_model_one_by_value1(500)
             assert_equals(len(find), 2)
             assert_equals(find[0].id, self.o1_id)
             assert_equals(find[1].id, self.o2_id)
-    
+
         def test_match_with_boolean_value(self):
             find = ModelOne.get_model_one_by_boolean_value(True)
             assert_equals(len(find), 1)
             assert_equals(find[0].id, self.o1_id)
-    
+
 
 Run in the command line::
 
 
-    $ nosetests --mongoengine test_model_one.py 
+    $ nosetests --mongoengine test_model_one.py
     ..
     ----------------------------------------------------------------------
     Ran 2 tests in 0.054s
-    
+
     OK
 
